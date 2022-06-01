@@ -57,7 +57,7 @@
 
     <EditText
         android:id="@+id/title_id"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/note_title"
         android:textColorHint="#E8E4E4"
@@ -65,10 +65,24 @@
         android:background="@color/darkGray"
         android:textColor="@color/white"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toEndOf="@id/textDateTime"
-        app:layout_constraintStart_toStartOf="@id/textDateTime"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="12dp"
+        android:includeFontPadding="false"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/viewIndicator"
         app:layout_constraintTop_toBottomOf="@id/textDateTime"/>
+
+        <View
+            android:id="@+id/viewIndicator"
+            android:layout_width="5dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/background_indicator"
+            app:layout_constraintBottom_toBottomOf="@id/title_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/title_id"/>
 
         <ImageView
             android:id="@+id/imageNote"

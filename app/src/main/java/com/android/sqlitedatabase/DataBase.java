@@ -22,8 +22,7 @@ public class DataBase extends SQLiteOpenHelper {
     private static final String COLUMN_DESCRIPTION = "description";
     private static final String COLUMN_DATE = "date";
     private static final String COLUMN_TIME = "time";
-    private static final String COLUMN_IMAGE = "image";
-    private Context context;
+    private final Context context;
 
     public DataBase(@Nullable Context context) {
         super(context, DATABASE_NAME,null,DATABASE_VERSION);

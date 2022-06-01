@@ -36,6 +36,15 @@
                 android:transitionName="id_trans" />
         </RelativeLayout>
 
+    <TextView
+        android:id="@+id/note_date_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/app_name"
+        android:textSize="12sp"
+        android:textColor="#878282"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"

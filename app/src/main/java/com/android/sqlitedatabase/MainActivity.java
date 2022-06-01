@@ -7,15 +7,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,7 +23,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ImageView imageView,linearLayoutView,gridLayoutView,openPopUpMenu;
+    ImageView imageView,linearLayoutView,gridLayoutView,openPopUpMenu,imageAddNoteBtn;
     TextView textView;
     RecyclerView recyclerView;
     DataBase db;
@@ -36,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> desc;
     ArrayList<String> date;
     ArrayList<String> time;
-    ArrayList<byte[]> image;
     Adapter adapter;
     AlertDialog dialogExit,dialogDeleteAll;
     @Override
@@ -49,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         linearLayoutView = findViewById(R.id.linearLayoutView);
         gridLayoutView = findViewById(R.id.gridLayoutView);
         openPopUpMenu = findViewById(R.id.openPopUpMenu);
+        imageAddNoteBtn = findViewById(R.id.imageAddNoteBtn);
 
         gridLayoutView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +64,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        imageAddNoteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,AddNoteActivity.class);
+                startActivity(intent);
+            }
+        });
+
         openPopUpMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,13 +83,13 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()){
-                            case R.id.addNote:
-                                Intent intent = new Intent(MainActivity.this,AddNoteActivity.class);
-                                startActivity(intent);
-                                break;
                             case R.id.deleteAllNotes:
                                deleteAllConfirmDialog();
                                 break;
+                            case R.id.about:
+                                return true;
+                            case R.id.help:
+                                return true;
                         }
                         return true;
                     }
@@ -99,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
         desc = new ArrayList<>();
         date = new ArrayList<>();
         time = new ArrayList<>();
-        image = new ArrayList<byte[]>();
 
         fetchAllNotesFromDatabase();
 

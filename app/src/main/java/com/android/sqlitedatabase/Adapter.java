@@ -43,6 +43,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         holder.number_id.setText(String.valueOf(id.get(position)));
         holder.note_title.setText(String.valueOf(title.get(position)));
         holder.note_desc.setText(String.valueOf(desc.get(position)));
+        holder.note_date_time.setText("Created at "+ date.get(position));
     }
 
     @Override
@@ -51,7 +52,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView number_id,note_title,note_desc;
+        TextView number_id,note_title,note_desc,note_date_time;
         ImageView image_id,image_view;
         LinearLayout linearLayout;
         public ViewHolder(@NonNull View itemView) {
@@ -59,6 +60,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             number_id = itemView.findViewById(R.id.number_id);
             note_title = itemView.findViewById(R.id.note_title);
             note_desc = itemView.findViewById(R.id.note_desc);
+            note_date_time = itemView.findViewById(R.id.note_date_time);
             image_id = itemView.findViewById(R.id.image_id);
             linearLayout = itemView.findViewById(R.id.linearLayoutBorder);
 

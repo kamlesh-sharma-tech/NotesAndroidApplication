@@ -3,6 +3,7 @@ package com.android.sqlitedatabase;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,7 @@ public class UpdateActivity extends AppCompatActivity {
     String id,currentDate,currentTime;
     DateFormat getDate,getTime;
 
+    @SuppressLint("SimpleDateFormat")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +37,7 @@ public class UpdateActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
-        updateNoteId.setText("Update Note - "+id);
+        updateNoteId.setText(String.format("Update Note - %s", id));
         title_id.setText(intent.getStringExtra("title"));
         desc_id.setText(intent.getStringExtra("desc"));
 

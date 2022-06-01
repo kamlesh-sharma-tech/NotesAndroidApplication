@@ -111,46 +111,60 @@
      android:layout_width="match_parent"
      android:layout_height="wrap_content"
      android:background="@drawable/background_miscellaneous"
-     android:gravity="center"
+     android:gravity="center_vertical"
      android:orientation="horizontal"
      android:padding="14dp"
      app:layout_constraintBottom_toBottomOf="parent">
 
   <ImageView
       android:id="@+id/imageAddNote"
-      android:layout_width="28dp"
-      android:layout_height="28dp"
+      android:layout_width="26dp"
+      android:layout_height="26dp"
       android:contentDescription="@string/app_name"
       android:src="@drawable/add_circle"
-      app:tint="#A4A4A4" />
+      app:tint="@color/white" />
 
   <ImageView
       android:id="@+id/imageAddText"
-      android:layout_width="28dp"
-      android:layout_height="28dp"
+      android:layout_width="26dp"
+      android:layout_height="26dp"
       android:contentDescription="@string/app_name"
       android:src="@drawable/pen"
       android:layout_marginStart="25dp"
-      app:tint="#A4A4A4" />
+      app:tint="@color/white" />
 
   <ImageView
       android:id="@+id/imageAddImage"
-      android:layout_width="28dp"
-      android:layout_height="28dp"
+      android:layout_width="26dp"
+      android:layout_height="26dp"
       android:contentDescription="@string/app_name"
       android:src="@drawable/image"
       android:layout_marginStart="25dp"
-      app:tint="#A4A4A4" />
+      app:tint="@color/white" />
 
   <ImageView
       android:id="@+id/imageAddWebLink"
-      android:layout_width="28dp"
-      android:layout_height="28dp"
+      android:layout_width="26dp"
+      android:layout_height="26dp"
       android:contentDescription="@string/app_name"
       android:src="@drawable/voice"
       android:layout_marginStart="25dp"
-      app:tint="#A4A4A4" />
+      app:tint="@color/white" />
 
  </LinearLayout>
+
+ <ImageView
+     android:id="@+id/imageAddNoteBtn"
+     android:layout_width="50dp"
+     android:layout_height="50dp"
+     android:layout_marginEnd="20dp"
+     android:padding="10dp"
+     android:contentDescription="@string/app_name"
+     android:src="@drawable/ic_add"
+     android:background="@drawable/background_done"
+     app:tint="@color/white"
+     app:layout_constraintBottom_toTopOf="@id/layoutQuickActions"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintTop_toTopOf="@id/layoutQuickActions"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

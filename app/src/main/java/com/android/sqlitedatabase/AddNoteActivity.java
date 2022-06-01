@@ -14,6 +14,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -46,11 +47,12 @@ public class AddNoteActivity extends AppCompatActivity {
 
     EditText title_id,desc_id;
     TextView textDateTime;
-    ImageView imageBack;
-    ImageView saveNote;
-    ImageView imageNote;
-    String currentDate,currentTime,currentDateTime;
+    ImageView imageBack,saveNote,imageNote;
+    String currentDate,currentTime,currentDateTime,selectedNoteColor;
     DateFormat getDate,getTime;
+
+    View viewIndicator;
+
     @SuppressLint("SimpleDateFormat")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,7 @@ public class AddNoteActivity extends AppCompatActivity {
         saveNote = findViewById(R.id.saveNote);
         textDateTime = findViewById(R.id.textDateTime);
         imageNote = findViewById(R.id.imageNote);
+        viewIndicator = findViewById(R.id.viewIndicator);
 
         currentDateTime = new SimpleDateFormat("EEEE, dd MMMM yyyy HH:mm a", Locale.getDefault())
                 .format(new Date());
@@ -92,6 +95,8 @@ public class AddNoteActivity extends AppCompatActivity {
         });
 
         initMiscellaneous();
+        selectedNoteColor = "#333333";
+        setSubtitleIndicatorColor();
     }
 
     public void saveNotes(){
@@ -116,7 +121,6 @@ public class AddNoteActivity extends AppCompatActivity {
         else{
             DataBase db = new DataBase(AddNoteActivity.this);
             db.addNote(title_id.getText().toString(),desc_id.getText().toString(),currentDate,currentTime);
-
             Intent intent = new Intent(AddNoteActivity.this,MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
@@ -127,6 +131,78 @@ public class AddNoteActivity extends AppCompatActivity {
     private void initMiscellaneous(){
         final LinearLayout layoutMiscellaneous = findViewById(R.id.layoutMiscellaneous);
         final BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(layoutMiscellaneous);
+        final ImageView imageColor1 = findViewById(R.id.imagecolor1);
+        final ImageView imageColor2 = findViewById(R.id.imagecolor2);
+        final ImageView imageColor3 = findViewById(R.id.imagecolor3);
+        final ImageView imageColor4 = findViewById(R.id.imagecolor4);
+        final ImageView imageColor5 = findViewById(R.id.imagecolor5);
+
+        layoutMiscellaneous.findViewById(R.id.viewColor1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectedNoteColor = "#333333";
+                imageColor1.setImageResource(R.drawable.ic_done);
+                imageColor2.setImageResource(0);
+                imageColor3.setImageResource(0);
+                imageColor4.setImageResource(0);
+                imageColor5.setImageResource(0);
+                setSubtitleIndicatorColor();
+            }
+        });
+
+        layoutMiscellaneous.findViewById(R.id.viewColor2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectedNoteColor = "#FDBE3B";
+                imageColor1.setImageResource(0);
+                imageColor2.setImageResource(R.drawable.ic_done);
+                imageColor3.setImageResource(0);
+                imageColor4.setImageResource(0);
+                imageColor5.setImageResource(0);
+                setSubtitleIndicatorColor();
+            }
+        });
+
+        layoutMiscellaneous.findViewById(R.id.viewColor3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectedNoteColor = "#FF4842";
+                imageColor1.setImageResource(0);
+                imageColor2.setImageResource(0);
+                imageColor3.setImageResource(R.drawable.ic_done);
+                imageColor4.setImageResource(0);
+                imageColor5.setImageResource(0);
+                setSubtitleIndicatorColor();
+            }
+        });
+
+        layoutMiscellaneous.findViewById(R.id.viewColor4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectedNoteColor = "#3A52FC";
+                imageColor1.setImageResource(0);
+                imageColor2.setImageResource(0);
+                imageColor3.setImageResource(0);
+                imageColor4.setImageResource(R.drawable.ic_done);
+                imageColor5.setImageResource(0);
+                setSubtitleIndicatorColor();
+            }
+        });
+
+        layoutMiscellaneous.findViewById(R.id.viewColor5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectedNoteColor = "#4CAF50";
+                imageColor1.setImageResource(0);
+                imageColor2.setImageResource(0);
+                imageColor3.setImageResource(0);
+                imageColor4.setImageResource(0);
+                imageColor5.setImageResource(R.drawable.ic_done);
+                setSubtitleIndicatorColor();
+            }
+        });
+
+
         layoutMiscellaneous.findViewById(R.id.viewAction).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -163,6 +239,11 @@ public class AddNoteActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void setSubtitleIndicatorColor() {
+        GradientDrawable gradientDrawable = (GradientDrawable) viewIndicator.getBackground();
+        gradientDrawable.setColor(Color.parseColor(selectedNoteColor));
     }
 
 //    private byte[] convertImageViewtoByteArray(ImageView imageView){
@@ -236,6 +317,5 @@ public class AddNoteActivity extends AppCompatActivity {
         }
 
     }
-
 
 }

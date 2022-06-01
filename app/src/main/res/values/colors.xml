@@ -9,4 +9,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="darkGray">#151515</color>
     <color name="lightGray">#1B1B1B</color>
+
+    <color name="colorDefaultNoteColor">#333333</color>
+    <color name="colorMiscellaneousBackground">#1F1F1F</color>
+    <color name="colorNoteColor2">#FDBE3B</color>
+    <color name="colorNoteColor3">#FF4842</color>
+    <color name="colorNoteColor4">#3A52FC</color>
+    <color name="colorNoteColor5">#4CAF50</color>
 </resources>
