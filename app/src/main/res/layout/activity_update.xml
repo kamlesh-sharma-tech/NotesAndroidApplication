@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/darkGray"
+    tools:context=".UpdateActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/imageBack"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_arrow"
+            app:tint="@color/white"
+            android:contentDescription="@string/app_name"/>
+
+        <ImageView
+            android:id="@+id/updateNote"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/updated"
+            android:contentDescription="@string/app_name"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/updateNoteId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Note"
+        android:textSize="25sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_margin="8dp"/>
+
+    <EditText
+        android:id="@+id/title_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Note Title"
+        android:background="@color/darkGray"
+        android:textColorHint="#E8E4E4"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <EditText
+        android:id="@+id/desc_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textColorHint="#E8E4E4"
+        android:textColor="@color/white"
+        android:layout_marginRight="20dp"
+        android:textSize="18sp"
+        android:background="@color/darkGray"
+        android:hint="Type your message here..." />
+
+</LinearLayout>

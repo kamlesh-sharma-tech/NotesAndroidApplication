@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkGray"
+    tools:context=".MainActivity">
+
+ <RelativeLayout
+     android:id="@+id/textMyNotesLayout"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_marginStart="6dp"
+     android:layout_marginTop="10dp"
+     android:layout_marginEnd="6dp"
+     android:layout_marginBottom="6dp"
+     android:background="@drawable/background_main"
+     android:padding="12dp"
+     app:layout_constraintTop_toTopOf="parent">
+
+  <TextView
+      android:id="@+id/textMyNotes"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="8sp"
+      android:text="@string/my_notes"
+      android:textColor="@color/white"
+      android:textSize="18sp" />
+
+  <ImageView
+      android:id="@+id/linearLayoutView"
+      android:layout_width="22dp"
+      android:layout_height="22dp"
+      android:layout_centerVertical="true"
+      android:layout_marginEnd="20dp"
+      android:layout_toStartOf="@id/openPopUpMenu"
+      android:src="@drawable/linearlayout"
+      android:clickable="true"
+      android:visibility="gone"
+      android:focusable="true" />
+
+  <ImageView
+      android:id="@+id/gridLayoutView"
+      android:layout_width="22dp"
+      android:layout_height="22dp"
+      android:layout_centerVertical="true"
+      android:layout_marginEnd="15dp"
+      android:layout_toStartOf="@+id/openPopUpMenu"
+      android:clickable="true"
+      android:src="@drawable/gridlayout"
+      android:focusable="true" />
+
+  <ImageView
+      android:id="@+id/openPopUpMenu"
+      android:layout_width="30dp"
+      android:layout_height="30dp"
+      android:layout_alignParentEnd="true"
+      android:layout_centerVertical="true"
+      android:layout_marginEnd="10dp"
+      android:background="@drawable/background_ripple"
+      android:clickable="true"
+      android:focusable="true"
+      android:src="@drawable/ic_more_vert"
+      android:contentDescription="@string/app_name" />
+
+ </RelativeLayout>
+
+ <androidx.recyclerview.widget.RecyclerView
+     android:id="@+id/recyclerView"
+     android:layout_width="match_parent"
+     android:layout_height="0dp"
+     android:layout_below="@id/textMyNotesLayout"
+     android:scrollbars="vertical"
+     app:layout_constraintTop_toBottomOf="@id/textMyNotesLayout"
+     app:layout_constraintBottom_toTopOf="@id/layoutQuickActions"/>
+
+ <ImageView
+     android:id="@+id/imageView"
+     android:layout_width="130dp"
+     android:layout_height="130dp"
+     android:src="@drawable/nodata"
+     android:alpha="0.8"
+     android:visibility="gone"
+     app:layout_constraintTop_toTopOf="parent"
+     app:layout_constraintLeft_toLeftOf="parent"
+     app:layout_constraintRight_toRightOf="parent"
+     app:layout_constraintBottom_toBottomOf="parent"
+     android:contentDescription="@string/app_name" />
+
+ <TextView
+     android:id="@+id/textView"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_below="@+id/imageView"
+     android:alpha="0.8"
+     android:text="No Data!"
+     android:visibility="gone"
+     android:textColor="@color/white"
+     android:textSize="28sp"
+     app:layout_constraintBottom_toBottomOf="parent"
+     app:layout_constraintLeft_toLeftOf="parent"
+     app:layout_constraintRight_toRightOf="parent"
+     app:layout_constraintTop_toTopOf="parent"
+     app:layout_constraintVertical_bias="0.652">
+
+ </TextView>
+
+ <LinearLayout
+     android:id="@+id/layoutQuickActions"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:background="@drawable/background_miscellaneous"
+     android:gravity="center"
+     android:orientation="horizontal"
+     android:padding="14dp"
+     app:layout_constraintBottom_toBottomOf="parent">
+
+  <ImageView
+      android:id="@+id/imageAddNote"
+      android:layout_width="28dp"
+      android:layout_height="28dp"
+      android:contentDescription="@string/app_name"
+      android:src="@drawable/add_circle"
+      app:tint="#A4A4A4" />
+
+  <ImageView
+      android:id="@+id/imageAddText"
+      android:layout_width="28dp"
+      android:layout_height="28dp"
+      android:contentDescription="@string/app_name"
+      android:src="@drawable/pen"
+      android:layout_marginStart="25dp"
+      app:tint="#A4A4A4" />
+
+  <ImageView
+      android:id="@+id/imageAddImage"
+      android:layout_width="28dp"
+      android:layout_height="28dp"
+      android:contentDescription="@string/app_name"
+      android:src="@drawable/image"
+      android:layout_marginStart="25dp"
+      app:tint="#A4A4A4" />
+
+  <ImageView
+      android:id="@+id/imageAddWebLink"
+      android:layout_width="28dp"
+      android:layout_height="28dp"
+      android:contentDescription="@string/app_name"
+      android:src="@drawable/voice"
+      android:layout_marginStart="25dp"
+      app:tint="#A4A4A4" />
+
+ </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

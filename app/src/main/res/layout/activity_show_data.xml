@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkGray"
+    android:id="@+id/layout"
+    tools:context=".ShowDataActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:paddingBottom="12dp">
+
+        <ImageView
+            android:id="@+id/imageBack"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_arrow"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            app:tint="@color/white"
+            android:focusable="true" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_border">
+
+            <TextView
+                android:id="@+id/idD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ubuntu"
+                android:text="37"
+                android:textColor="#0A8CF4"
+                android:textSize="30sp"
+                android:transitionName="id_trans"/>
+
+            <ImageView
+                android:id="@+id/open_bottom_sheet_dialog"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_more_vert" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#6C6B6B"
+            android:layout_marginTop="20dp">
+
+        </View>
+
+        <TextView
+            android:id="@+id/dataTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How to add two numbers in python"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:layout_marginTop="10dp"
+            android:textIsSelectable="true"
+            android:transitionName="title_trans">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/dataDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="ffedaf"
+            android:layout_marginTop="8dp"
+            android:textColor="#DBDADD"
+            android:autoLink="web"
+            android:clickable="true"
+            android:textSize="18sp"
+            android:textIsSelectable="true"
+            android:transitionName="desc_trans"
+            android:focusable="true">
+
+        </TextView>
+
+    </LinearLayout>
+
+</ScrollView>
