@@ -1,3 +1,5 @@
+# Notes Application
+I've created Notes (To-Do List) Android Application using Android Studio in which we read, add, delete and update the notes.
 ![Screen Shot 1](https://user-images.githubusercontent.com/66367321/171471435-930090ac-7f1f-48e1-a87d-9b65dabdb072.jpeg)
 ![Screen Shot 2](https://user-images.githubusercontent.com/66367321/171471444-a4a461ff-0a14-4f1a-94d7-656666aa7b0e.jpeg)
 ![Screen Shot 3](https://user-images.githubusercontent.com/66367321/171471447-12cfde67-81b7-48b3-8d6f-62069f764b38.jpeg)
