@@ -87,10 +87,6 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.deleteAllNotes:
                                 deleteAllConfirmDialog();
                                 break;
-                            case R.id.about:
-                                return true;
-                            case R.id.help:
-                                return true;
                         }
                         return true;
                     }

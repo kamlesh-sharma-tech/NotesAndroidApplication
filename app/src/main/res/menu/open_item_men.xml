@@ -6,11 +6,5 @@
         android:id="@+id/deleteAllNotes"
         android:title="Delete All" />
 
-    <item
-        android:id="@+id/about"
-        android:title="About us"/>
-
-    <item android:id="@+id/help"
-        android:title="Help"/>
 
 </menu>
