@@ -139,7 +139,6 @@ public class ShowDataActivity extends AppCompatActivity {
 
     private void deleteNoteConfirmDialog(String position) {
 
-
         if(dialogDelete == null){
             AlertDialog.Builder builder = new AlertDialog.Builder(ShowDataActivity.this);
             View view = LayoutInflater.from(this).inflate(
@@ -147,6 +146,7 @@ public class ShowDataActivity extends AppCompatActivity {
                     (ViewGroup) findViewById(R.id.layoutDeleteContainer)
             );
             builder.setView(view);
+            builder.setCancelable(false);
             dialogDelete = builder.create();
             if(dialogDelete.getWindow() != null){
                 dialogDelete.getWindow().setBackgroundDrawable(new ColorDrawable(0));
@@ -175,6 +175,7 @@ public class ShowDataActivity extends AppCompatActivity {
     }
 
     private void detailDialog(String numberID, String noteDate, String noteTime) {
+
         AlertDialog.Builder builder = new AlertDialog.Builder(ShowDataActivity.this);
         builder.setTitle("About Note!");
         builder.setMessage("Note Number : "+numberID+"\nReadable : Yes"+"\nEditable : Yes"+"\nDate Created : "+noteDate+"\nTime Created : "+noteTime);
@@ -183,11 +184,12 @@ public class ShowDataActivity extends AppCompatActivity {
         builder.setNegativeButton("Close", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
+                dialog.dismiss();
             }
         });
         AlertDialog alertDialog = builder.create();
         builder.show();
+
     }
 
 }

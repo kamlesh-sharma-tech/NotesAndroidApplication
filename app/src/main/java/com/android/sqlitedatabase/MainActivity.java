@@ -23,7 +23,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ImageView imageView,linearLayoutView,gridLayoutView,openPopUpMenu,imageAddNoteBtn;
+    ImageView imageView, linearLayoutView, gridLayoutView, openPopUpMenu, imageAddNoteBtn;
     TextView textView;
     RecyclerView recyclerView;
     DataBase db;
@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> date;
     ArrayList<String> time;
     Adapter adapter;
-    AlertDialog dialogExit,dialogDeleteAll;
+    AlertDialog dialogExit, dialogDeleteAll;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         gridLayoutView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
                 linearLayoutView.setVisibility(View.VISIBLE);
                 gridLayoutView.setVisibility(View.GONE);
             }
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         imageAddNoteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,AddNoteActivity.class);
+                Intent intent = new Intent(MainActivity.this, AddNoteActivity.class);
                 startActivity(intent);
             }
         });
@@ -75,16 +76,16 @@ public class MainActivity extends AppCompatActivity {
         openPopUpMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PopupMenu popupMenu = new PopupMenu(MainActivity.this,view);
-                popupMenu.getMenuInflater().inflate(R.menu.open_item_men,popupMenu.getMenu());
+                PopupMenu popupMenu = new PopupMenu(MainActivity.this, view);
+                popupMenu.getMenuInflater().inflate(R.menu.open_item_men, popupMenu.getMenu());
                 popupMenu.show();
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
 
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
-                        switch (menuItem.getItemId()){
+                        switch (menuItem.getItemId()) {
                             case R.id.deleteAllNotes:
-                               deleteAllConfirmDialog();
+                                deleteAllConfirmDialog();
                                 break;
                             case R.id.about:
                                 return true;
@@ -98,25 +99,23 @@ public class MainActivity extends AppCompatActivity {
         });
 
         db = new DataBase(MainActivity.this);
-        id = new ArrayList<>();
+        id = new ArrayList<String>();
         title = new ArrayList<>();
         desc = new ArrayList<>();
         date = new ArrayList<>();
         time = new ArrayList<>();
 
-        fetchAllNotesFromDatabase();
+        displayData();
 
+        adapter = new Adapter(MainActivity.this, id, title, desc, date, time);
+        recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
-//        recyclerView.addItemDecoration(itemDecoration);
-        adapter = new Adapter(MainActivity.this,id,title,desc,date,time);
-        recyclerView.setAdapter(adapter);
     }
 
     private void deleteAllConfirmDialog() {
-        if(dialogDeleteAll == null){
+        if (dialogDeleteAll == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
             View view = LayoutInflater.from(this).inflate(
                     R.layout.layout_delete_all_dialog,
@@ -124,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
             );
             builder.setView(view);
             dialogDeleteAll = builder.create();
-            if(dialogDeleteAll.getWindow() != null){
+            if (dialogDeleteAll.getWindow() != null) {
                 dialogDeleteAll.getWindow().setBackgroundDrawable(new ColorDrawable(0));
             }
 
@@ -133,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     DataBase db = new DataBase(MainActivity.this);
                     db.deleteAllNotes();
-                    startActivity(new Intent(MainActivity.this,MainActivity.class));
+                    startActivity(new Intent(MainActivity.this, MainActivity.class));
                     finish();
                 }
             });
@@ -149,24 +148,26 @@ public class MainActivity extends AppCompatActivity {
         dialogDeleteAll.show();
     }
 
-    public void fetchAllNotesFromDatabase() {
+    public void displayData() {
         Cursor cursor = db.readAllData();
-        if (cursor.getCount() == 0 ){
+        if (cursor.getCount() == 0) {
             imageView.setImageResource(R.drawable.nodata);
             imageView.setVisibility(View.VISIBLE);
             textView.setVisibility(View.VISIBLE);
-        }else{
-            while (cursor.moveToNext()){
+        } else {
+            while (cursor.moveToNext()) {
                 id.add(cursor.getString(0));
                 title.add(cursor.getString(1));
                 desc.add(cursor.getString(2));
                 date.add(cursor.getString(3));
                 time.add(cursor.getString(4));
+//                datetime.add(cursor.getString(5));
+            }
+        }
+        cursor.close();
 //                byte[] image = cursor.getBlob(5);
 //                Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
 //                imageView.setImageBitmap(bitmap);
-            }
-        }
     }
 
     @Override
@@ -182,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
                     (ViewGroup) findViewById(R.id.layoutExitContainer)
             );
             builder.setView(view);
+            builder.setCancelable(false);
             dialogExit = builder.create();
             if(dialogExit.getWindow() != null){
                 dialogExit.getWindow().setBackgroundDrawable(new ColorDrawable(0));

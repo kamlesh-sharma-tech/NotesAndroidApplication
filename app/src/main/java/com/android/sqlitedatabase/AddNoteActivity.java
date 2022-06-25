@@ -68,9 +68,7 @@ public class AddNoteActivity extends AppCompatActivity {
 
         currentDateTime = new SimpleDateFormat("EEEE, dd MMMM yyyy HH:mm a", Locale.getDefault())
                 .format(new Date());
-
         textDateTime.setText(currentDateTime);
-
 
         //show the current date
         getDate = new SimpleDateFormat("dd/MM/yyyy");
@@ -94,12 +92,21 @@ public class AddNoteActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.imageDelete).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imageNote.setImageBitmap(null);
+                imageNote.setVisibility(View.GONE);
+                findViewById(R.id.imageDelete).setVisibility(View.GONE);
+            }
+        });
+
         initMiscellaneous();
         selectedNoteColor = "#333333";
         setSubtitleIndicatorColor();
     }
 
-    public void saveNotes(){
+    private void saveNotes(){
 //        if(title_id.getText().toString().trim().isEmpty() && desc_id.getText().toString().trim().isEmpty()){
 //            Toast.makeText(AddNoteActivity.this, "Empty Note Discarded", Toast.LENGTH_SHORT).show();
 //            Intent intent = new Intent(AddNoteActivity.this,MainActivity.class);
@@ -309,6 +316,7 @@ public class AddNoteActivity extends AppCompatActivity {
                         Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
                         imageNote.setImageBitmap(bitmap);
                         imageNote.setVisibility(View.VISIBLE);
+                        findViewById(R.id.imageDelete).setVisibility(View.VISIBLE);
                     }catch (Exception e){
                         Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }

@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 
 import io.github.muddz.styleabletoast.StyleableToast;
 
-public class DataBase extends SQLiteOpenHelper {
+class DataBase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "notedb.db";
     private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_TABLE = "notetable";
@@ -22,7 +22,9 @@ public class DataBase extends SQLiteOpenHelper {
     private static final String COLUMN_DESCRIPTION = "description";
     private static final String COLUMN_DATE = "date";
     private static final String COLUMN_TIME = "time";
-    private final Context context;
+    private static final String COLUMN_DATETIME = "datetime";
+    private Context context;
+
 
     public DataBase(@Nullable Context context) {
         super(context, DATABASE_NAME,null,DATABASE_VERSION);
@@ -32,9 +34,14 @@ public class DataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //command to create the table
-        String query = "CREATE TABLE "+DATABASE_TABLE+" ("+COLUMN_ID+"INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                COLUMN_TITLE + " TEXT, "+COLUMN_DESCRIPTION + " TEXT, "+COLUMN_DATE + " TEXT, "+
+        String query = "CREATE TABLE " + DATABASE_TABLE +
+                " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_TITLE + " TEXT, " +
+                COLUMN_DESCRIPTION + " TEXT, " +
+                COLUMN_DATE + " TEXT, " +
                 COLUMN_TIME + " TEXT);";
+//        query = "ALTER TABLE " + DATABASE_TABLE + " ADD " + COLUMN_DATETIME + " text ";
+//        query = "ALTER TABLE notetable ADD datetime TEXT;";
         db.execSQL(query);
     }
 
@@ -70,12 +77,10 @@ public class DataBase extends SQLiteOpenHelper {
 
     //Function to read all rows from the database
     Cursor readAllData(){
-        String query = "SELECT * FROM " + DATABASE_TABLE+" ORDER BY "+COLUMN_ID+" DESC";
-        SQLiteDatabase database = this.getReadableDatabase();
+        String query = "SELECT * FROM " + DATABASE_TABLE + " ORDER BY " + COLUMN_ID + " DESC";
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = null;
-        if (database!=null){
-            cursor=database.rawQuery(query,null);
-        }
+        cursor=db.rawQuery(query,null);
         return cursor;
     }
 

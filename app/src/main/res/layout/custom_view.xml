@@ -20,8 +20,8 @@
 
             <ImageView
                 android:id="@+id/image_id"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:src="@drawable/note" />
 
             <TextView
@@ -36,14 +36,6 @@
                 android:transitionName="id_trans" />
         </RelativeLayout>
 
-    <TextView
-        android:id="@+id/note_date_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/app_name"
-        android:textSize="12sp"
-        android:textColor="#878282"/>
 
         <View
             android:layout_width="match_parent"
@@ -63,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:text="fkskkamlesh"
                 android:textColor="@color/white"
-                android:textSize="22dp"
+                android:textSize="24dp"
                 android:transitionName="title_trans"
                 android:maxLines="5"
                 android:ellipsize="end"/>
@@ -76,7 +68,7 @@
                 android:ellipsize="end"
                 android:text="fkskkamlesh"
                 android:textColor="#E8E6E6"
-                android:textSize="18dp"
+                android:textSize="20dp"
                 android:layout_marginTop="4dp"
                 android:transitionName="desc_trans"/>
 

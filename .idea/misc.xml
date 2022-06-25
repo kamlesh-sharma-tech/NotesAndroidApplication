@@ -6,6 +6,7 @@
         <entry key="..\:/Programming/Android Development/SQLiteDataBase/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1115" />
         <entry key="..\:/Programming/Android Development/SQLiteDataBase/app/src/main/res/drawable/background_dialog.xml" value="0.164" />
         <entry key="..\:/Programming/Android Development/SQLiteDataBase/app/src/main/res/drawable/background_done.xml" value="0.1115" />
+        <entry key="..\:/Programming/Android Development/SQLiteDataBase/app/src/main/res/drawable/background_image_delete.xml" value="0.112" />
         <entry key="..\:/Programming/Android Development/SQLiteDataBase/app/src/main/res/drawable/background_indicator.xml" value="0.112" />
         <entry key="..\:/Programming/Android Development/SQLiteDataBase/app/src/main/res/drawable/background_main.xml" value="0.1115" />
         <entry key="..\:/Programming/Android Development/SQLiteDataBase/app/src/main/res/drawable/background_miscellaneous.xml" value="0.112" />
@@ -36,6 +37,7 @@
         <entry key="..\:/Programming/Android Development/SQLiteDataBase/app/src/main/res/layout/layout_delete_all.xml" value="0.19583333333333333" />
         <entry key="..\:/Programming/Android Development/SQLiteDataBase/app/src/main/res/layout/layout_delete_all_dialog.xml" value="0.19583333333333333" />
         <entry key="..\:/Programming/Android Development/SQLiteDataBase/app/src/main/res/layout/layout_delete_dialog.xml" value="0.19583333333333333" />
+        <entry key="..\:/Programming/Android Development/SQLiteDataBase/app/src/main/res/layout/layout_detail_layout.xml" value="0.19583333333333333" />
         <entry key="..\:/Programming/Android Development/SQLiteDataBase/app/src/main/res/layout/layout_exit_dialog.xml" value="0.19583333333333333" />
         <entry key="..\:/Programming/Android Development/SQLiteDataBase/app/src/main/res/layout/layout_miscellaneous.xml" value="0.19583333333333333" />
         <entry key="..\:/Programming/Android Development/SQLiteDataBase/app/src/main/res/menu/delete_all_menu.xml" value="0.2" />
