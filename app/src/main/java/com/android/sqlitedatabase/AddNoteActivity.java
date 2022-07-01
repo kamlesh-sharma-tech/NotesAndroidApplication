@@ -88,7 +88,7 @@ public class AddNoteActivity extends AppCompatActivity {
         saveNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              saveNotes();
+              saveNote();
             }
         });
 
@@ -106,7 +106,7 @@ public class AddNoteActivity extends AppCompatActivity {
         setSubtitleIndicatorColor();
     }
 
-    private void saveNotes(){
+    private void saveNote(){
 //        if(title_id.getText().toString().trim().isEmpty() && desc_id.getText().toString().trim().isEmpty()){
 //            Toast.makeText(AddNoteActivity.this, "Empty Note Discarded", Toast.LENGTH_SHORT).show();
 //            Intent intent = new Intent(AddNoteActivity.this,MainActivity.class);
@@ -114,10 +114,20 @@ public class AddNoteActivity extends AppCompatActivity {
 //            startActivity(intent);
 //        }
 //        byte[] bytesImage = convertImageViewtoByteArray(imageNote);
-        if(title_id.getText().toString().trim().isEmpty() || desc_id.getText().toString().trim().isEmpty()){
+        if(title_id.getText().toString().trim().isEmpty()){
             new StyleableToast
                     .Builder(AddNoteActivity.this)
-                    .text("Both fields are required")
+                    .text("Note Title is required")
+                    .textColor(Color.BLACK)
+                    .backgroundColor(Color.WHITE)
+                    .textSize(18)
+                    .cornerRadius(8)
+                    .length(25)
+                    .show();
+        }else if(desc_id.getText().toString().isEmpty()){
+            new StyleableToast
+                    .Builder(AddNoteActivity.this)
+                    .text("Message is required")
                     .textColor(Color.BLACK)
                     .backgroundColor(Color.WHITE)
                     .textSize(18)
