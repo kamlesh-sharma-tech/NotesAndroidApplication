@@ -25,9 +25,9 @@
       android:layout_height="wrap_content"
       android:layout_marginStart="8sp"
       android:text="@string/my_notes"
-      android:textColor="@color/white"
-      android:textStyle="bold"
-      android:textSize="18sp" />
+      android:textColor="#FF9800"
+      android:textSize="18sp"
+      android:textStyle="bold" />
 
   <ImageView
       android:id="@+id/linearLayoutView"
